@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Dashboard | CardioAdapt</title>
+  <link rel="stylesheet" href="css/style.css">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+
+<header>
+  <h2>💙 CardioAdapt Dashboard</h2>
+  <span id="modeLabel"></span>
+</header>
+
+<main>
+
+  <div class="grid">
+
+    <div class="card">
+      <h3>Live Heart Rate</h3>
+      <div id="heartRate" class="bpm">-- BPM</div>
+      <div id="status" class="status">Calibrating</div>
+    </div>
+
+    <div class="card">
+      <h3>Risk Score</h3>
+      <div id="riskScore" class="risk">0</div>
+    </div>
+
+  </div>
+
+  <div class="card">
+    <canvas id="heartChart"></canvas>
+  </div>
+
+  <div class="card">
+    <h3>AI Insight</h3>
+    <p id="explanation">Calibrating baseline...</p>
+    <p id="avgBpm">Average BPM: --</p>
+    <p id="historyText">Recent BPM: --</p>
+    <button id="resetBtn" onclick="resetEmergency()" style="display:none;">
+      Acknowledge Alert
+    </button>
+  </div>
+
+</main>
+
+<script src="js/charts.js"></script>
+<script src="js/dashboard.js"></script>
+</body>
+</html>

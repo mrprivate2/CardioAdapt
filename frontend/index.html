@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>CardioAdapt</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body class="center">
+
+  <div class="card">
+    <h1>💙 CardioAdapt</h1>
+    <p>Adaptive Heart Monitoring System</p>
+
+    <label>Select User Type</label>
+    <select id="userType">
+      <option value="normal">Normal</option>
+      <option value="athlete">Athlete</option>
+      <option value="medical">Medical</option>
+    </select>
+
+    <button onclick="start()">Start Monitoring</button>
+  </div>
+
+  <script>
+    function start() {
+      const type = document.getElementById("userType").value;
+      localStorage.setItem("userType", type);
+      window.location.href = "dashboard.html";
+    }
+  </script>
+
+</body>
+</html>
