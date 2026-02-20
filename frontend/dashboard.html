@@ -1,51 +1,93 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <title>Dashboard | CardioAdapt</title>
-  <link rel="stylesheet" href="css/style.css">
+  <meta charset="UTF-8" />
+  <title>CardioAdapt Dashboard</title>
+
+  <!-- ✅ FIXED CSS PATH (style.css, not styles.css) -->
+  <link rel="stylesheet" href="css/style.css" />
+
+  <!-- Chart.js -->
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 <body>
 
-<header>
-  <h2>💙 CardioAdapt Dashboard</h2>
-  <span id="modeLabel"></span>
-</header>
+<div class="dashboard">
 
-<main>
+  <!-- ================= TOP ROW ================= -->
+  <div class="row">
 
-  <div class="grid">
+    <!-- HEART CARD -->
+    <div class="card heart-card">
+      <h2>Hi, User 👋</h2>
+      <p class="subtitle">Let’s measure your heart rate</p>
 
-    <div class="card">
-      <h3>Live Heart Rate</h3>
-      <div id="heartRate" class="bpm">-- BPM</div>
-      <div id="status" class="status">Calibrating</div>
+      <div class="heart-visual">❤️</div>
+
+      <div class="info-pill">
+        Stress Level: <b id="stress">Low</b>
+      </div>
     </div>
 
+    <!-- HRV CARD -->
     <div class="card">
-      <h3>Risk Score</h3>
-      <div id="riskScore" class="risk">0</div>
+      <div class="card-header">
+        <span>Heart Rate Variability</span>
+        <span class="metric">82 ms</span>
+      </div>
+
+      <!-- ✅ CHART WRAPPER (VERY IMPORTANT) -->
+      <div class="chart-box">
+        <canvas id="hrvChart"></canvas>
+      </div>
     </div>
 
   </div>
 
-  <div class="card">
-    <canvas id="heartChart"></canvas>
+  <!-- ================= BOTTOM ROW ================= -->
+  <div class="row">
+
+    <!-- ECG CARD -->
+    <div class="card ecg-card">
+      <h3>ECG Recording</h3>
+
+      <!-- ✅ CHART WRAPPER -->
+      <div class="chart-box">
+        <canvas id="ecgChart"></canvas>
+      </div>
+    </div>
+
+    <!-- METRICS GRID -->
+    <div class="metrics">
+
+      <div class="metric-card">
+        <span>ECG</span>
+        <h2 id="bpm">95 bpm</h2>
+      </div>
+
+      <div class="metric-card">
+        <span>Blood Pressure</span>
+        <h2>118/76</h2>
+      </div>
+
+      <div class="metric-card">
+        <span>Blood Oxygen</span>
+        <h2>98%</h2>
+      </div>
+
+      <div class="metric-card">
+        <span>HRV</span>
+        <h2>86 ms</h2>
+        <small>Status: Stable</small>
+      </div>
+
+    </div>
+
   </div>
 
-  <div class="card">
-    <h3>AI Insight</h3>
-    <p id="explanation">Calibrating baseline...</p>
-    <p id="avgBpm">Average BPM: --</p>
-    <p id="historyText">Recent BPM: --</p>
-    <button id="resetBtn" onclick="resetEmergency()" style="display:none;">
-      Acknowledge Alert
-    </button>
-  </div>
+</div>
 
-</main>
-
-<script src="js/charts.js"></script>
+<!-- JS -->
 <script src="js/dashboard.js"></script>
 </body>
 </html>

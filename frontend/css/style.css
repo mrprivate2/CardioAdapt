@@ -1,77 +1,145 @@
+* {
+  box-sizing: border-box;
+  font-family: "Segoe UI", sans-serif;
+}
+
 body {
   margin: 0;
-  font-family: "Segoe UI", sans-serif;
-  background: #e3f2fd;
-  color: #0d47a1;
+  background: linear-gradient(135deg, #eef3f8, #f8fbff);
+  color: #1f2937;
 }
 
-header {
-  background: #1565c0;
-  color: white;
-  padding: 15px;
-  display: flex;
-  justify-content: space-between;
+/* ================= DASHBOARD ================= */
+
+.dashboard {
+  max-width: 1200px;
+  margin: auto;
+  padding: 30px;
 }
 
-main {
-  padding: 20px;
-}
+/* ================= ROW LAYOUT ================= */
 
-.center {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
-}
-
-.card {
-  background: white;
-  padding: 20px;
-  border-radius: 10px;
-  margin-bottom: 20px;
-  box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-}
-
-.grid {
+.row {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 20px;
+  gap: 26px;
+  margin-bottom: 26px;
+  align-items: start;
 }
 
-.bpm {
-  font-size: 42px;
+/* ================= CARD ================= */
+
+.card {
+  background: #ffffff;
+  border-radius: 18px;
+  padding: 22px;
+  box-shadow: 0 15px 35px rgba(0,0,0,0.08);
+  overflow: hidden;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 20px 45px rgba(0,0,0,0.12);
+}
+
+/* ================= HEART CARD ================= */
+
+.heart-card {
+  background: linear-gradient(135deg, #f5f9ff, #e6f0ff);
+}
+
+.subtitle {
+  color: #555;
+  margin-top: 6px;
+  font-size: 15px;
+}
+
+.heart-visual {
+  font-size: 110px;
+  text-align: center;
+  margin: 20px 0;
+  animation: pulse 1.8s infinite;
+}
+
+@keyframes pulse {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.08); }
+  100% { transform: scale(1); }
+}
+
+.info-pill {
+  background: #e0ecff;
+  display: inline-block;
+  padding: 8px 16px;
+  border-radius: 14px;
+  color: #1e3a8a;
+  font-weight: 600;
+}
+
+/* ================= CARD HEADER ================= */
+
+.card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 12px;
+}
+
+.metric {
+  font-size: 26px;
+  color: #f97316;
   font-weight: bold;
 }
 
-.status {
-  margin-top: 10px;
-  font-weight: bold;
+/* ================= ECG ================= */
+
+.ecg-card {
+  height: 260px;
 }
 
-.risk {
-  font-size: 32px;
+/* ================= METRICS GRID ================= */
+
+.metrics {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
 }
 
-button {
-  padding: 10px 15px;
-  background: #1e88e5;
-  border: none;
-  color: white;
-  border-radius: 6px;
-  cursor: pointer;
+.metric-card {
+  background: #f8fbff;
+  border-radius: 16px;
+  padding: 18px;
+  text-align: center;
+  transition: transform 0.2s ease;
 }
 
-button:hover {
-  background: #1565c0;
+.metric-card:hover {
+  transform: scale(1.03);
 }
 
-select {
-  padding: 8px;
-  width: 100%;
-  margin: 10px 0;
+.metric-card span {
+  font-size: 14px;
+  color: #6b7280;
 }
 
-.emergency {
-  background: #b71c1c;
-  color: white;
+.metric-card h2 {
+  margin: 8px 0;
+  color: #2563eb;
+}
+
+.metric-card small {
+  color: #22c55e;
+  font-weight: 500;
+}
+
+/* ================= CHARTS ================= */
+
+.chart-box {
+  height: 180px;
+}
+
+canvas {
+  width: 100% !important;
+  height: 180px !important;
 }
